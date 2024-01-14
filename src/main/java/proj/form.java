@@ -2,14 +2,17 @@ package proj;
 
 // important import statements
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.exc.StreamReadException;
+import com.fasterxml.jackson.databind.DatabindException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -23,6 +26,7 @@ import static javax.swing.BoxLayout.Y_AXIS;
 // for extending the JFrame  
 public class form extends JFrame
 {
+    ArrayList<person> people = new ArrayList<>();
     JScrollPane scrlpane;
     public form()
     {
@@ -35,8 +39,23 @@ public class form extends JFrame
     }
     public void inner()
     {
-        ArrayList<person> people = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
+        if(new File("person.json").length()!=0)
+            try {
+
+                person[] example = mapper.readValue(new File("person.json"), person[].class);
+
+                people = new ArrayList<>(Arrays.asList(example));
+
+
+            } catch (StreamReadException e) {
+                throw new RuntimeException(e);
+            } catch (DatabindException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
 
         person personimput = new person();
         String col[] = {"Nume", "Prenume", "Varsta", "Angajat", "Prezent fizic", "Studii"};
