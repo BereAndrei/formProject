@@ -153,6 +153,7 @@ public class form extends JFrame
                 panel.add(tab);
 
             }
+
                 halfSplit.revalidate();
                 halfSplit.repaint();
 
