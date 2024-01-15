@@ -150,7 +150,7 @@ public class form extends JFrame
 
             personimput.setStudiu((String) studii.getSelectedItem());
             if(Objects.equals(formNume.getText(), "") || Objects.equals(formPreNume.getText(), "")) {
-                System.out.println("EMPTYYYY");
+                System.out.println("Empty");
             }
             else{
 
@@ -223,7 +223,7 @@ public class form extends JFrame
         halfSplit.add(scrlpane, BorderLayout.CENTER);
 
         getContentPane().add(halfSplit);
-        System.out.println(getContentPane());
+
 
 
     }
