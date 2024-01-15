@@ -154,7 +154,7 @@ public class form extends JFrame
             }
             else{
 
-                people.add(personimput);
+                people.add(new person(formNume.getText(),formPreNume.getText(),(int) formVarsta.getValue(),personimput.getAngajat(),chec.isSelected(),(String) studii.getSelectedItem()));
 
                 try {
                     String jsonString = mapper.writeValueAsString(people);

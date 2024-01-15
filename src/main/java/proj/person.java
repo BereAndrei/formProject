@@ -76,7 +76,17 @@ public class person {
         this.studiu = studiu;
     }
 
+    public person(String nume, String prenume, int varsta, String angajat, boolean esteAici, String studiu) {
+        this.nume = nume;
+        this.prenume = prenume;
+        this.varsta = varsta;
+        this.angajat = angajat;
+        this.esteAici = esteAici;
+        this.studiu = studiu;
+    }
+    public person(){
 
+    }
 
     public String[] personrow() {
         String var = String.valueOf(varsta);
